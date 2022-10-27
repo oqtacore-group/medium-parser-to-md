@@ -3,7 +3,7 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 
 
-exports.articleParser = async function (url) {
+module.exports = async function (url) {
     const response = await axios(url);
     const $ = cheerio.load(response.data);
 
