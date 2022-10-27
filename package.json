@@ -2,9 +2,13 @@
   "name": "medium-parser-to-md",
   "version": "1.0.0",
   "description": "Parser medium article to markdown",
-  "main": "parser-article.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oqtacore-group/medium-parser-to-md.git"
   },
   "author": "Igor Kozlov <https://www.linkedin.com/in/igor-kozlov-910b4b218/>",
   "license": "ISC",
