@@ -9,9 +9,9 @@ module.exports = async function (url) {
 
     let title = $('.pw-post-title').text();
     let author = $('.gi > div:nth-child(1) > div:nth-child(1) > a').text();
-    let image = [];
+    let images = [];
     let img = $('picture > source').each((i, el) => {
-        image.push(($(el).attr('srcset')).split(' ')[0]);
+        images.push(($(el).attr('srcset')).split(' ')[0]);
     });
     let date = $('.pw-published-date').text();
 
@@ -23,18 +23,21 @@ module.exports = async function (url) {
         });
     });
     $('*').find('picture').each((i, el) => {
-        $(el).replaceWith(`<img> ${image[i]} </ img>`);
+        $(el).replaceWith('replaceableImage');
     });
     const article = [];
     let description = $('section').html();
 
     const turndownService = new TurndownService();
-    const markdownDescription = turndownService.turndown(description);
+    let markdownDescription = turndownService.turndown(description);
+    images.forEach((elem) => {
+        markdownDescription = markdownDescription.replace('replaceableImage', `![](${elem})`);
+    })
 
     article.push({
         title: title,
         author: author,
-        image: image, //return all image
+        image: images,
         date: date,
         description: markdownDescription
     });
