@@ -1,6 +1,6 @@
 {
   "name": "medium-parser-to-markdown",
-  "version": "1.0.1",
+  "version": "1.0.5",
   "description": "Parser medium article (image, author, date, title, description) and converts description to markdown",
   "main": "index.js",
   "scripts": {
