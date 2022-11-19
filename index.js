@@ -2,22 +2,22 @@ const axios = require('axios');
 const cheerio = require('cheerio');
 const markdown = require("html-to-md");
 
-const calendar = {
-    Jan: '01',
-    Feb: '02',
-    Mar: '03',
-    Apr: '04',
-    May: '05',
-    Jun: '06',
-    Jul: '07',
-    Aug: '08',
-    Sep: '09',
-    Oct: '10',
-    Nov: '11',
-    Dec: '12',
-}
-
 module.exports = async function (url) {
+    const calendar = {
+        Jan: '01',
+        Feb: '02',
+        Mar: '03',
+        Apr: '04',
+        May: '05',
+        Jun: '06',
+        Jul: '07',
+        Aug: '08',
+        Sep: '09',
+        Oct: '10',
+        Nov: '11',
+        Dec: '12',
+    }
+
     const response = await axios(url);
     const $ = cheerio.load(response.data);
 
@@ -80,7 +80,7 @@ module.exports = async function (url) {
         title: title,
         author: author,
         image: images,
-        date: date,
+        date: newDate,
         description: markdownDescription
     });
     return article;
