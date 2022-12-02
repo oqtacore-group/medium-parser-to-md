@@ -1,4 +1,4 @@
-# medium-parser-to-markdown
+# medium-parser-to-markdown (Medium parser)
 A library that takes URL of a Medium article and returns its markdown version in a string.
 
 You can to get title, descripton, images, author, date of an article.
@@ -15,7 +15,7 @@ This library was created by [Igor Kozlov](https://www.linkedin.com/in/igor-kozlo
     const mediumParser = async (url) => {
         try {
             const article = await articleParser(url);
-            console.log(article.description);
+            console.log(article[0].description);
         }
         catch (e) {
             console.error(e);
@@ -84,7 +84,7 @@ This library was created by [Igor Kozlov](https://www.linkedin.com/in/igor-kozlo
     const mediumParser = async (url) => {
         try {
             const article = await articleParser(url);
-            console.log(article.title, article.author, article.date, article.images);
+            console.log(article[0].title, article[0].author, article[0].date, article[0].images);
         }
         catch (e) {
             console.error(e);
